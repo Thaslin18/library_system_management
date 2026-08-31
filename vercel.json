@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "library_system/wsgi.py",
