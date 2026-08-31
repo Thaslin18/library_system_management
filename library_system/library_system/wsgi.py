@@ -8,9 +8,15 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
 
 import os
-
+import sys
+from pathlib import Path
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "library_system.library_system.settings")
+# Add the project directory containing manage.py and app folders to sys.path
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(str(BASE_DIR))
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'library_system.settings')
 
 application = get_wsgi_application()
+app = application
