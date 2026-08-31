@@ -3,10 +3,15 @@
   "builds": [
     {
       "src": "library_system/library_system/wsgi.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "collectStatic": "python library_system/manage.py collectstatic --noinput" }
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/library_system/staticfiles/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "library_system/library_system/wsgi.py"
