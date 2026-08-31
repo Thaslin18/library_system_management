@@ -4,7 +4,9 @@
     {
       "src": "library_system/library_system/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "collectStatic": "python library_system/manage.py collectstatic --noinput" }
+      "config": { 
+        "maxLambdaSize": "15mb"
+      }
     }
   ],
   "routes": [
